@@ -16,7 +16,8 @@ function displayCountries (countries) {
     countryName.textContent=`${country.name}`
     countriesUL.append(countryName)
     countryName.addEventListener('click', e => {
-        alert (`In ${country.name}, they speak ${country.languages[0].name}`)
+        countryName.innerHTML=`In ${country.name}, they speak ${country.languages[0].name}`
+        
     })
     countryName.addEventListener('mouseover', e => {
         countryName.textContent=`${country.capital}`

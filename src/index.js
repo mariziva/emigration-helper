@@ -15,6 +15,19 @@ function displayCountries (countries) {
     const countryName = document.createElement('li')
     countryName.textContent=`${country.name}`
     countriesUL.append(countryName)
+    const button = document.createElement('button')
+    button.textContent = "I've been there!"
+    countriesUL.append(button)
+    
+    let count = 0
+    button.addEventListener('click', e => {
+        count = count + 1;
+        if (count%2 === 1){
+        countryName.style.color = "red"}
+        else{
+            countryName.style.color = ""
+        }
+    })
     countryName.addEventListener('click', e => {
         countryName.innerHTML=`In ${country.name}, they speak ${country.languages[0].name}`
         

@@ -1,71 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchCountryData()
-    //criteriaChooser()
 })
 
 function fetchCountryData(){
     fetch ('https://restcountries.eu/rest/v2/all')
     .then (resp => resp.json())
-    .then (data => displayCountries(data))
+    .then (data => displayQuiz(data))
 }  
 
-function displayCountries (countries) {
+function displayQuiz(countries) {
     countries.forEach(country => {
-    const countriesUL = document.querySelector('.countries-list')
-    const countryName = document.createElement('li')
-    countryName.textContent=`${country.name}`
-    countriesUL.append(countryName)
-    const button = document.createElement('button')
-    button.textContent = "I've been there!"
-    countriesUL.append(button)
-    
-    let count = 0
-    button.addEventListener('click', e => {
-        count = count + 1;
-        if (count%2 === 1){
-        countryName.style.color = "red"}
-        else{
-            countryName.style.color = ""
-        }
-    })
-    countryName.addEventListener('click', e => {
-        countryName.innerHTML=`In ${country.name}, they speak ${country.languages[0].name}`
-        
-    })
-    countryName.addEventListener('mouseover', e => {
-        countryName.textContent=`${country.capital}`
-    })
-    countryName.addEventListener('mouseout', e => {
+        const countriesUL = document.querySelector('.countries-list')
+        const countryName = document.createElement('li')
+        countryName.id = country.name
         countryName.textContent=`${country.name}`
-    })
-})
+        countryName.addEventListener('click', e => {
+            countryName.textContent=`In ${country.languages[0].name}, the country is called ${country.nativeName}`
+        })
+        countriesUL.append(countryName)
+        const userAnswer = document.createElement('form')
+        userAnswer.addEventListener('submit', e => validateAnswer(e, country))
+        const userAnswerInput = document.createElement('input')
+        userAnswerInput.setAttribute('type', "text")
+        userAnswerInput.setAttribute('name', "userGuess")
+        userAnswer.append(userAnswerInput)
+        countriesUL.append
+        (userAnswer)
+
+   
+    })   
 }
+//we know this one works, don't touch it
+function validateAnswer(e, country){
+    e.preventDefault()
+    if (e.target.userGuess.value === country.capital) {
+        document.getElementById(country.name).style.color = "green"}
+    else document.getElementById(country.name).style.color = "red"
+    }
 
+//wrong answer three times reveals correct answer
 
+let count = 0
+function wrongAnswer(){
+    count = count + 1
+    if (count%3 === 1){
+        
+    }
+    return something 
+}    
 
-// function criteriaChooser () {
-//     if (document.getElementsByClassName('.criteria').value==="language"){ let languageDiv = document.querySelector('.language')
-//         let languageDropdown = document.createElement('select').innerHTML = `<select name="languageList" onchange="displayCountries()">
-//         <option value="Spanish">Spanish</option>
-//         <option value="French">French</option>
-//       </select>`
-//       languageDiv.append(languageDropdown)
-//     } else if (document.getElementsByClassName('.criteria').value==="time-zone") {
-//         let timezoneDiv = document.querySelector('.time-zone')
-//         let timezoneDropdown = document.createElement('select').innerHTML = `<select name="timezoneList" onchange="displayCountries()">
-//         <option value="UTC800">UTC 8:00</option>
-//         <option value="UTC600">UTC 6:00</option>
-//       </select>`
-//       timezoneDiv.append(timezoneDropdown)
-//     }
-
-// }
-
-
-
-    
-
-
-// whichever one the user chooses creates a new div right underneath, text: "I speak:" with dropdown of available languages or "I want to be in this time zone:" with dropdown of available timezones
-
-// div container for countries list, result of the above populates the list
+//advanced feature: identify a close answer, i.e. accept upper and/or lowercase. later: only one letter is missing or letters are all present but not in correct positions

@@ -1,10 +1,13 @@
-# emigration-helper
+# world-capitals-study-helper
 
-Welcome to Emigration Helper!
+Welcome to World Capitals Study Helper!
 
-This tool helps you learn about other countries and decide where to move in the world based on what qualities are important to you in a new home country.
+This tool helps you study world capitals. 
 
-Here are some things you can do:
--To learn the capital of a country, hover over it. Move your pointer away to revert
--To learn the main language spoken there, click the name of the country
--To keep track of countries you have visited, click the "I've been there!" button to turn it red.
+Try your hand at guessing the country's capital and hit enter to submit.
+
+If you're correct, the name of the country will turn green.
+
+If you're incorrect, it will turn red.
+
+To learn the country's native language and how to say the name of the country in that language, click the country's name.

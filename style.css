@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+.info {
+    text-align: center
+}
+
+ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(4, 25%);
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

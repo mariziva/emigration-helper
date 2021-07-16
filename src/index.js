@@ -35,11 +35,8 @@ const userAnswer = document.createElement('form')
         userAnswer.append(userAnswerInput)
         countriesUL.append
         (userAnswer)
-
-   
     })   
 }
-//we know this one works, don't touch it
 
 function validateAnswer(e, country){
     e.preventDefault()
@@ -47,13 +44,9 @@ function validateAnswer(e, country){
         document.getElementById(country.name).style.color = "green"
     }
     else document.getElementById(country.name).style.color = "red"
-    // count = count + 1
-    // if (countryHiddenPart === 3){
-    //    console.log("hi") 
-    // }
     }
 
-//wrong answer three times reveals correct answer
-  
 
-//advanced feature: identify a close answer, i.e. accept upper and/or lowercase. later: only one letter is missing or letters are all present but not in correct positions
+//later:
+//wrong answer three times reveals correct answer
+//identify a close answer, i.e. accept upper and/or lowercase. later: only one letter is missing or letters are all present but not in correct positions

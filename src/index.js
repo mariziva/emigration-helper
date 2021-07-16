@@ -27,14 +27,13 @@ function displayQuiz(countries) {
         // countryName.append(countryHiddenPart)
         // countryHiddenPart.textContent = ""
         
-const userAnswer = document.createElement('form')
+        const userAnswer = document.createElement('form')
         userAnswer.addEventListener('submit', e => validateAnswer(e, country))
         const userAnswerInput = document.createElement('input')
         userAnswerInput.setAttribute('type', "text")
         userAnswerInput.setAttribute('name', "userGuess")
         userAnswer.append(userAnswerInput)
-        countriesUL.append
-        (userAnswer)
+        countriesUL.append(userAnswer)
     })   
 }
 
